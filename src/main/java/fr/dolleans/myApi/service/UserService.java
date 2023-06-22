@@ -39,8 +39,9 @@ public UserService(){
 
   this.users.add(new User(0,"FATIMA",35));
   this.users.add(new User(1,"AMEL",25));
-  this.users.add(new User(2,"YOSR",15)); 
-  this.users.add(new User(3,"ROMIN",45)); 
+  this.users.add(new User(2,"CAMILLE",15)); 
+  this.users.add(new User(3,"PAUL",45));
+  this.users.add(new User(4,"PASCAL",55)); 
 }
 // METHODE getUser
     public User getUser(int id) { // VALEUR DE RETOUR  de la méthode ou de la fonction getUser()
