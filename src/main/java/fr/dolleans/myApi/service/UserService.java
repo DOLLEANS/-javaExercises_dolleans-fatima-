@@ -40,11 +40,12 @@ public UserService(){
   this.users.add(new User(0,"FATIMA",35));
   this.users.add(new User(1,"AMEL",25));
   this.users.add(new User(2,"YOSR",15)); 
+  this.users.add(new User(3,"ROMIN",45)); 
 }
 // METHODE getUser
     public User getUser(int id) { // VALEUR DE RETOUR  de la méthode ou de la fonction getUser()
         for (User user : this.users) { //je vais créer une nouvelle variable user avec le type User qui va parcourir le tableau users (this.users)
-            if (user.getId()== id) { // SI L'identifiant de user et celui en parametre (int id) sont egaux alors c'est celui qui est recherché donc il faut la retourner (recuperer) à l 'exterieur de la fonction
+            if (user.getId()== id) { // SI L'identifiant de user et celui en parametre (int id) sont egaux alors c'est celui qui est recherché donc il faut la retourner (recuperer et le remettre) à l 'exterieur de la fonction
                 return user;
             }
         }
@@ -52,8 +53,30 @@ public UserService(){
      
     }
 
+    public User createUser(String name,int age){
+        User user =new User(users.size()+1,name,age);
+        return user;
+
+    }
+public User updateUser(int id,String name,int age){
+    for(User user:this.users){
+        if(user.getId() ==id){
+             user.setName(name);
+             user.setAge(age);
+    return user;
+        }
+    }
+return null;
 }
- 
-
-
+}
+ /* EXERCICE3 Rendez-vous dans le dossier « service » à l’intérieur de « myApi ». 
+ Dans le fichier « UserService.java », vous devrez ajouter une méthode publique à la classe
+  « UserService » qui sera nommée « updateUser » prenant en paramètre un « id » le « name » et l’« age ».
+Elle devra retourner un « User ».
+Dans cette méthode, vous devrez parcourir le tableau « users » et vérifier quand les « id » seront les mêmes.
+ Dès que la condition sera vraie, c’est-à-dire que l’« id » de votre paramètre et l’« id » de l’« user » seront
+  identiques, vous pourrez modifier les valeurs « name » et « age » avec les « setters » approprié.
+ Vous retournerez ensuite un « user » modifié. Si vous ne trouvez pas l’« id » dans la liste « users » 
+ vous retournerez « null ».
+ */
 
