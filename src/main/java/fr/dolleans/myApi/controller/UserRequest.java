@@ -2,27 +2,31 @@ package fr.dolleans.myApi.controller;
 
 //import fr.dolleans.myApi.model.User;
 
+// CLASSE UserRequest
 public class UserRequest {
     private String name;
     private int age;
 
+// CONSTRUCTEUR
     public UserRequest(String name, int age) {
         this.name = name;
         this.age = age;
 
     }
+    // GETTERS ET SETTERS POUR  NAME ET AGE (MAIS ON RETIRE SETTERS CAR PAS DEMANDE n'empeche on peut les garder) 
+
     public String getName() {
         return name;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
+    //public void setName(String name) {
+       // this.name = name;
+    //}
     public int getAge() {
         return age;
     }
-    public void setAge(int age) {
-        this.age = age;
-    }
+   // public void setAge(int age) {
+       // this.age = age;
+    //}
   
     
 }

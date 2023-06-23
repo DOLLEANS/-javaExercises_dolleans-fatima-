@@ -82,23 +82,21 @@ public User updateUser(int id,String name,int age){
     }
 return null;
 }
-//METHODE POUR SUPPRIMER UN UTILISATEURPAR SON ID
+//METHODE POUR SUPPRIMER UN UTILISATEUR PAR SON ID
 public User deleteUser(int id){
     // PARCOURIR LE TABLEAU D'UTILISATEURS
     for(User user:this.users){
-        //VERIFIER SI ID DE L'UTILISATEUR CORRESPOND A L'ID PASSE EN PARAMETRE
+        //VERIFIER SI ID DE L'UTILISATEUR CORRESPOND  BIEN A L'ID PASSE EN PARAMETRE
         if(user.getId()==id){
             // RECUPERER L'INDEX DE L'UTILISATEUR DU TABLEAU
-            int index =users.indexOf(user); //on recheche l'index de l'utilisateur d'user ( un des element s de tableau) dans le tableau users
+            int index =this.users.indexOf(user); //on recheche l'index de l'utilisateur user (user qui est un des éléments du tableau) dans le tableau users
            //SUPPRIMER L'UTILSATEUR DU TABLEAU
-            User deleteUser =users.remove(index); // User une nouveau type  d'user 
+            User deleteUser =this.users.remove(index); // User un nouveau type d'user 
             // RETOURNEZ L'UTILISATEUR SUPPRIME
   return deleteUser;
         }  
     }
-// SI AUCUN UTILISATEUR AVEC ID SPECIFIE N'EST PAS TROUVE,RETOURNEZ NULL.
-
-   
+// SI AUCUN UTILISATEUR AVEC ID SPECIFIE N'EST PAS TROUVE,RETOURNEZ NULL. 
 return null;
 
 }

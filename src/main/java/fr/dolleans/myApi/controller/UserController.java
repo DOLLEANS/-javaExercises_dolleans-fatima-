@@ -70,6 +70,15 @@ User user = userService.createUser(body.getName(),body.getAge());
 
 return user;
 }*/
+//AUTRES VERSION DE PRESENTATION DE createUser plus compréhensive pour debutant mais prends plus de place
+
+/* @PostMapping("/user")
+public User createUser(@RequestBody UserRequest body){
+    String name= body.getName();
+    int age = body.getAge();
+User user = userService.createUser(name,age);
+return user;
+} */
  
  @PostMapping("/user")
 public User createUser(@RequestBody UserRequest body){
