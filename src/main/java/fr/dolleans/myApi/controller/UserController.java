@@ -1,5 +1,6 @@
 package fr.dolleans.myApi.controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -69,21 +70,11 @@ User user = userService.createUser(body.getName(),body.getAge());
 
 return user;
 }*/
- //@PostMapping("/user")
-//public createUser (@RequestBody UserRequest body){
-  // User user = userService.createUser(body.getName(),body.getAge());
-//return user;
-  // } 
+ 
  @PostMapping("/user")
 public User createUser(@RequestBody UserRequest body){
 User user = userService.createUser(body.getName(),body.getAge());
 return user;
-}
-@PutMapping("/user")
-public User updateUser(@RequestParam int id,@RequestBody UserRequest body){
-User user = userService.updateUser(id,body.getName(),body.getAge());
-return user;
-}
 }
 /*EXERCICE 3
 Dans le dossier « controller » de « myApi », allez dans le fichier « UserController.java ». Vous allez devoir y ajouter une méthode publique 
@@ -97,6 +88,30 @@ De cette manière, ce sera cette méthode qui sera appelée lorsqu'une requête 
  avec les paramètres « id » et ceux de « body » que vous récupérez avec les « getters ». 
  Vous récupérerez un objet de type « User » que vous retournerez.
  */
+@PutMapping("/user")
+public User updateUser(@RequestParam int id,@RequestBody UserRequest body){
+User user = userService.updateUser(id,body.getName(),body.getAge());
+return user;
+}
+@DeleteMapping("/user")
+public User deleteUser(@RequestParam int id){
+    User user =userService.deleteUser(id);
+    return user;
+
+}
+/*EXERCICE 4 
+ * Dans le dossier « controller » de « myApi », allez dans le fichier « UserController.java ». Vous 
+allez devoir y ajouter une méthode publique « deleteUser » qui prendra en paramètre une 
+variable « id » de type « Integer » avec l’annotation « @RequestParam ».
+Cette méthode devra être précédée de l'annotation « @DeleteMapping("/user") » pour spécifier 
+l'URL de l'endpoint de l'API. De cette manière, ce sera cette méthode qui sera appelée 
+lorsqu'une requête PUT sera effectuée sur l'URL « /user ».
+À l'intérieur de cette méthode, appelez la méthode « deleteUser » du « userService », Le 
+paramètre devra être la variable « id ». Vous récupérerez un objet de type « User » que vous 
+retournerez
+ */
+}
+
 
 
 
