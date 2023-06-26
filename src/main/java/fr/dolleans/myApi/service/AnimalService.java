@@ -1,71 +1,66 @@
 package fr.dolleans.myApi.service;
 
-import java.util.ArrayList;
 
+//
+import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
 import fr.dolleans.myApi.model.Animal;
 
-
 @Service
 public class AnimalService {
+    private ArrayList<Animal> animals;
 
-    private ArrayList<Animal> animals; 
-   
-public AnimalService(){ ; 
+    public AnimalService() {
+        this.animals = new ArrayList<Animal>();
 
-  this.animals.add(new Animal(0,"LION","MAMMIFERE",100));
-  this.animals.add(new Animal(1,"SINGE","MAMMIFERE",50));
-  this.animals.add(new Animal(2,"PIGEON","OISEAU",10)); 
-  this.animals.add(new Animal(3,"DAUPHIN","POISSON",70));
-  this.animals.add(new Animal(4,"SERPENT","REPTLIE",15)); 
-}
+        this.animals.add(new Animal(0, "Chouchou", "chat", 16));
+        this.animals.add(new Animal(1, "Médor", "chien", 35));
+        this.animals.add(new Animal(2, "Magicarpe", "poisson", 1));
+    }
 
-    public Animal getAnimal(int id) { 
-        for (Animal animal : this.animals) { 
-            if (animal.getId()== id) { 
+    public Animal getAnimal(int id) {
+        for (Animal animal : this.animals) {
+            if (animal.getId() == id) {
                 return animal;
             }
         }
         return null;
-     
     }
 
-    public Animal createAnimal(String name,String type, int weight){
-        Animal animal =new Animal(animals.size()+1,name,type,weight);
+    public Animal createAnimal(String name, String type, int weight) {
+        Animal animal = new Animal(this.animals.size(), name, type, weight);
+        this.animals.add(animal);
+
         return animal;
     }
-    
-public Animal updateAnimal(int id,String name,String type,int weight){
-    for(Animal animal:this.animals){
-        if(animal.getId() ==id){
-             animal.setName(name);
-             animal.setType(type);
-             animal.setWeight(weight);
-             return animal;
+
+    public Animal updateAnimal(int id, String name, String type, int weight) {
+        for (Animal animal : this.animals) {
+            if (animal.getId() == id) {
+                animal.setName(name);
+                animal.setType(type);
+                animal.setWeight(weight);
+                return animal;
+            }
         }
-    }
-return null;
-}
 
-public Animal deleteAnimal(int id){
-    for(Animal animal:this.animals){
-        if(animal.getId()==id){
-            int index =this.animals.indexOf(animal); 
-            Animal deleteAnimal =this.animals.remove(index);    
-  return deleteAnimal;
-        }  
+        return null;
     }
 
-return null;
+    public Animal deleteAnimal(int id) {
+        for (Animal animal : this.animals) {
+            if (animal.getId() == id) {
+                int index = this.animals.indexOf(animal);
+                return this.animals.remove(index);
+            }
+        }
 
-}
+        return null;
+    }
 
-public ArrayList<Animal> getAllAnimal() {
-    return this.animals;
-
-   
-}
-
+    public ArrayList<Animal> getAnimals() {
+        return this.animals;
+    }
 }
